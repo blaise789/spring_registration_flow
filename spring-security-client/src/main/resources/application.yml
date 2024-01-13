@@ -1,0 +1,24 @@
+server:
+  port: 5000
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_registration
+    username: root
+    password: Blaise@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: bigirabagaboblaise@gmail.com
+    password: rodozugbfwwgmsjm
+    port: '587'
+    sender: bigirabagaboblaise@gmail.com
