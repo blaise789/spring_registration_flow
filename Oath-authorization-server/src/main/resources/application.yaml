@@ -11,3 +11,32 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+logging:
+  level:
+    org.springframework.security: trace
+
+  security:
+    oauth2:
+        client:
+           registration:
+             api-client-oidc:
+               provider: spring
+               client-id: "oidc-client"
+               client-secret: "{noop}secret"
+               client-authentication-methods: "client_secret_basic"
+               authorization-grant-types: "authorization_code"
+               redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
+               scopes: "openid"
+             api-client-authorization-code:
+               provider: spring
+               client-id: api-client
+               client-secret: secret
+               authorization-grant-type: authorization_code
+               redirect-uri: "http://127.0.0.1:8080/authorized"
+               scope: api.read
+               client-name: api-client-authorization-code
+             provider:
+               spring:
+                 issue-uri: http://auth-server:9000
+
+

@@ -1,0 +1,7 @@
+server:
+  port: 6000
+spring:
+  security:
+    resourceserver:
+      jwt:
+        issue-uri: http://auth-server:9000
